@@ -1,5 +1,7 @@
 server:
   port: 8080
+jwt:
+  secret: my-super-secret-key
 
 spring:
   application:
