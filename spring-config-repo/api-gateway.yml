@@ -19,15 +19,12 @@ spring:
           uri: lb://payment-service
           predicates:
             - Path=/payment/**
-   config: 
-    import:
-      optional: 
-          configserver: http://localhost:8888
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
 management:
   endpoints:
     web:
