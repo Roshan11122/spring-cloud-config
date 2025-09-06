@@ -4,8 +4,8 @@ jwt:
   secret: 3f8e2b9c7d4a6e1f9b0c8d7e6a5f4c3b2a1d0e9f8c7b6a5d4c3b2a1f0e9d8c7b
 
 spring:
-  application:
-   name: order-service
+  #application:
+  # name: order-service
   datasource:
     url: jdbc:mysql://localhost:3306/orderdb
     username: root
