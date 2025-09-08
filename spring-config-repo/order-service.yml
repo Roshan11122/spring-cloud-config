@@ -33,22 +33,23 @@ feign:
 
 resilience4j:
   circuitbreaker:
+    configs:
+      default:
+        shareSecurityContext: true  # This is crucial!
     instances:
       paymentServiceCircuitBreaker:
+        baseConfig: default
         slidingWindowSize: 5
         minimumNumberOfCalls: 3
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
       productServiceCircuitBreaker:
+        baseConfig: default
         slidingWindowSize: 5
         minimumNumberOfCalls: 3
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
-      paymentDetailsCircuitBreaker:
-        slidingWindowSize: 5
-        minimumNumberOfCalls: 3
-        failureRateThreshold: 50
-        waitDurationInOpenState: 10s
+
 
   timelimiter:
     instances:
