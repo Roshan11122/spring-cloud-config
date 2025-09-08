@@ -72,4 +72,6 @@ logging:
     com.techm.OrderMicroService2.client: DEBUG
     org.springframework.cloud.openfeign: DEBUG
     io.github.resilience4j: DEBUG
+aop: 
+  proxy-target-class: true
 
