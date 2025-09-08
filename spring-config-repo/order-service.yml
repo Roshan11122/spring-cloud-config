@@ -67,3 +67,9 @@ management:
   endpoint:
     health:
       show-details: always
+logging:
+  level:
+    com.techm.OrderMicroService2.client: DEBUG
+    org.springframework.cloud.openfeign: DEBUG
+    io.github.resilience4j: DEBUG
+
