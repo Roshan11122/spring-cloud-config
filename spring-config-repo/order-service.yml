@@ -36,20 +36,34 @@ resilience4j:
     configs:
       default:
         shareSecurityContext: true  # This is crucial!
+        slidingWindowSize: 100
+        permittedNumberOfCallsInHalfOpenState: 10
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        slowCallRateThreshold: 50
+        slowCallDurationThreshold: 2s
+        recordExceptions:
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
+        ignoreExceptions:
+          - org.springframework.web.client.HttpServerErrorException
     instances:
+      paymentService:
+        base-config: default
       paymentServiceCircuitBreaker:
         baseConfig: default
         slidingWindowSize: 5
         minimumNumberOfCalls: 3
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
+      productService:
+        base-config: default
       productServiceCircuitBreaker:
         baseConfig: default
         slidingWindowSize: 5
         minimumNumberOfCalls: 3
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
-
 
   timelimiter:
     instances:
